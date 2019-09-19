@@ -18,6 +18,30 @@ namespace nrcore {
         value = JsonValue::getJsonValue(json);
     }
     
+    Json::Json(JsonValue::TYPE type) {
+        switch (type) {
+            case JsonValue::OBJECT:
+                value = Ref<JsonValue>(new JsonObject("{}"));
+                break;
+                
+            case JsonValue::ARRAY:
+                value = Ref<JsonValue>(new JsonArray("[]"));
+                break;
+                
+            case JsonValue::STRING:
+                value = Ref<JsonValue>(new JsonString(""));
+                break;
+                
+            case JsonValue::VALUE:
+                value = Ref<JsonValue>(new JsonNumber("0"));
+                break;
+                
+            default:
+                throw "Invalid Type";
+                break;
+        }
+    }
+    
     Json::Json(const Json &json) {
         this->value = json.value;
     }
@@ -34,8 +58,8 @@ namespace nrcore {
         return value;
     }
     
-    String Json::getStringValue(String name) {
-        StringList names(name, ".");
+    String Json::getStringValue(String path) {
+        StringList names(path, ".");
         try {
             Ref<JsonValue> val = value;
             ssize_t len = names.length();
@@ -64,13 +88,13 @@ namespace nrcore {
         return "";
     }
     
-    int Json::getIntValue(String name) {
-        String v = getStringValue(name);
+    int Json::getIntValue(String path) {
+        String v = getStringValue(path);
         return atoi(v.operator char *());
     }
     
-    Array< Ref<JsonValue> > Json::getArray(String name) {
-        StringList names(name, ".");
+    Array< Ref<JsonValue> > Json::getArray(String path) {
+        StringList names(path, ".");
         try {
             Ref<JsonValue> val = value;
             ssize_t len = names.length();
@@ -89,6 +113,27 @@ namespace nrcore {
             
         }
         return Array< Ref<JsonValue> >();
+    }
+    
+    bool Json::setValue(String path, Ref<JsonValue> value) {
+        StringList names(path, ".");
+        ssize_t len = names.length();
+        Ref<JsonValue> val = this->value;
+        JsonObject *jo;
+        
+        for (int i=0; i<len-1; i++) {
+            jo = (JsonObject*)val.getPtr();
+            try {
+                val = jo->getValue(names[i]);
+            } catch(const char *) {
+                jo->addValue(names[i], Ref<JsonValue>(new JsonObject("{}")));
+                val = jo->getValue(names[i]);
+            }
+        }
+        jo = (JsonObject*)val.getPtr();
+        jo->addValue(names[(unsigned int)len-1], value);
+        
+        return true;
     }
     
 }

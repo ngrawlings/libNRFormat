@@ -15,7 +15,6 @@
 using namespace nrcore;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
     String _json("{\"params\":{\"processed\":\"0\",\"window_id\":\"1\"},\"command\":\"Task\",\"hash\":\"B1\", \"results\": {\"processed\":\"100\"}, \"number\":555}");
     
     Json json(_json);
@@ -36,6 +35,11 @@ int main(int argc, const char * argv[]) {
     
     int num = json.getIntValue("number");
     printf("%d\n", num);
+    
+    json.setValue("mynewpath.childofnewpath.thevalue", Ref<JsonValue>(new JsonString("638903718")));
+    
+    v = json.getStringValue("mynewpath.childofnewpath.thevalue");
+    printf("%s\n", v.operator char *());
     
     Json arr("[\"12234567890\", \"0987654321\", 500, 400, 300, 200, 100, [12345,567890,9876543]]");
     Array< Ref<JsonValue> > values = arr.getArray("");

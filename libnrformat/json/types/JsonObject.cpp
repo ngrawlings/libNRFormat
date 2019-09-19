@@ -162,4 +162,9 @@ namespace nrcore {
         return values.get(n);
     }
     
+    void JsonObject::addValue(String name, Ref<JsonValue> value) {
+        Memory n(name.operator char *(), name.length());
+        values.set(n, value);
+    }
+    
 }

@@ -34,6 +34,8 @@ namespace nrcore {
         
         Ref<JsonValue> getValue(String name);
         
+        void addValue(String name, Ref<JsonValue> value);
+        
     protected:
         TYPE type;
         HashMap< Ref<JsonValue> > values;

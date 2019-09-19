@@ -14,6 +14,7 @@
 #include "types/JsonArray.h"
 #include "types/JsonObject.h"
 #include "types/JsonString.h"
+#include "types/JsonNumber.h"
 #include "types/JsonInvalid.h"
 
 #include <libnrcore/memory/String.h>
@@ -23,16 +24,18 @@ namespace nrcore {
     class Json {
     public:
         Json(String json);
+        Json(JsonValue::TYPE type);
         Json(const Json &json);
         virtual ~Json();
         
         JsonValue::TYPE getType();
         Ref<JsonValue> getValue();
         
-        String getStringValue(String name);
-        int getIntValue(String name);
+        String getStringValue(String path);
+        int getIntValue(String path);
+        Array< Ref<JsonValue> > getArray(String path);
         
-        Array< Ref<JsonValue> > getArray(String name);
+        bool setValue(String path, Ref<JsonValue> value);
         
     protected:
         Ref<JsonValue> value;
