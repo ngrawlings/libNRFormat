@@ -6,8 +6,8 @@
 //  Copyright © 2019 Liquidsoft Studio. All rights reserved.
 //
 
-#ifndef Json_hpp
-#define Json_hpp
+#ifndef JsonObject_hpp
+#define JsonObject_hpp
 
 #include <stdio.h>
 
@@ -16,32 +16,32 @@
 #include <libnrcore/memory/Array.h>
 #include <libnrcore/memory/HashMap.h>
 
+#include "JsonValue.h"
+
 namespace nrcore {
 
-    class Json {
-    public:
-        typedef enum {
-            OBJECT,
-            ARRAY,
-            STRING,
-            VALUE
-        } TYPE;
+    class JsonObject : public JsonValue {
         
     public:
-        Json(String json);
-        Json(const Json &json);
-        virtual ~Json();
+        JsonObject(String JsonObject);
+        JsonObject(const JsonObject &json);
+        virtual ~JsonObject();
+        
+        TYPE getType();
+        String toString();
         
         bool parse(String json);
         
-        String getString(String name);
+        Ref<JsonValue> getValue(String name);
         
     protected:
         TYPE type;
+        HashMap< Ref<JsonValue> > values;
+        String value;
         
-        HashMap<String> values;
+        Array<String> parseArray(String json);
     };
     
 }
 
-#endif /* Json_hpp */
+#endif /* JsonObject_hpp */

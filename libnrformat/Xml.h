@@ -15,7 +15,6 @@
 
 namespace nrcore {
     
-    
     class XmlState {
     public:
         friend class Xml;

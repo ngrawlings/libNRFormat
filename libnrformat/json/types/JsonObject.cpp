@@ -6,24 +6,57 @@
 //  Copyright © 2019 Liquidsoft Studio. All rights reserved.
 //
 
-#include "Json.h"
+#include "JsonObject.h"
 #include <libnrcore/memory/LinkedList.h>
+#include <libnrcore/memory/HashMap.h>
 
 namespace nrcore {
     
-    Json::Json(String json) {
+    JsonObject::JsonObject(String json) {
         parse(json);
     }
     
-    Json::Json(const Json &json) {
+    JsonObject::JsonObject(const JsonObject &json) {
+        values = json.values;
+    }
+    
+    JsonObject::~JsonObject() {
         
     }
     
-    Json::~Json() {
-        
+    JsonObject::TYPE JsonObject::getType() {
+        return OBJECT;
     }
     
-    bool Json::parse(String json) {
+    String JsonObject::toString() {
+        String ret;
+        LinkedList< Ref<HashMap< Ref<JsonValue> >::MAPENTRY> > entries = values.getEntries(Memory(0, 0));
+        LinkedListState< Ref<HashMap< Ref<JsonValue> >::MAPENTRY> > state(&entries);
+        
+        int len = state.length();
+        if (len) {
+            Ref<HashMap< Ref<JsonValue> >::MAPENTRY> ent = state.next();
+            
+            len--;
+            String v = String("\"%\":%")
+                    .arg(String(ent.getPtr()->key.operator char *(), ent.getPtr()->key.length()))
+                    .arg( ent.getPtr()->obj.getPtr()->toString() );
+            
+            ret = v;
+                                             
+            while(len--) {
+                Ref<HashMap< Ref<JsonValue> >::MAPENTRY> ent = state.next();
+            
+                ret.append(String(",\"%\":%")
+                    .arg(String(ent.getPtr()->key.operator char *(), ent.getPtr()->key.length()))
+                    .arg( ent.getPtr()->obj.getPtr()->toString() ));
+            }
+        }
+        
+        return String("{%}").arg(ret);
+    }
+    
+    bool JsonObject::parse(String json) {
         LinkedList<char> symbols;
         bool quotation = false;
         bool parsing_value = false;
@@ -109,7 +142,7 @@ namespace nrcore {
                             parsing_value = false;
                             
                             Memory n(name.operator char *(), name.length());
-                            values.set(n, val);
+                            values.set(n, JsonValue::getJsonValue(val));
                             
                             val = "";
                         } else {
@@ -124,7 +157,7 @@ namespace nrcore {
         return true;
     }
     
-    String Json::getString(String name) {
+    Ref<JsonValue> JsonObject::getValue(String name) {
         Memory n(name.operator char *(), name.length());
         return values.get(n);
     }

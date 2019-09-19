@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		975B30702333A01C009384DD /* JsonInvalid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 975B306E2333A01C009384DD /* JsonInvalid.cpp */; };
+		975B30712333A01C009384DD /* JsonInvalid.h in Headers */ = {isa = PBXBuildFile; fileRef = 975B306F2333A01C009384DD /* JsonInvalid.h */; };
 		97A260352331133E00E1D1AD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97A260342331133E00E1D1AD /* main.cpp */; };
-		97A2603B233114B500E1D1AD /* Json.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97A26039233114B500E1D1AD /* Json.cpp */; };
-		97A2603C233114B500E1D1AD /* Json.h in Headers */ = {isa = PBXBuildFile; fileRef = 97A2603A233114B500E1D1AD /* Json.h */; };
 		97A2603F23314B3500E1D1AD /* libnrcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97A2603E23314B3500E1D1AD /* libnrcore.a */; };
 		97A2604123314B7A00E1D1AD /* libnrdebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97A2604023314B7A00E1D1AD /* libnrdebug.a */; };
 		97A2604223320E5100E1D1AD /* libnrformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9798BCAE227366CA00F863ED /* libnrformat.a */; };
+		97A2607823337B6700E1D1AD /* JsonArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97A2606E23337B6600E1D1AD /* JsonArray.cpp */; };
+		97A2607923337B6700E1D1AD /* JsonArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 97A2606F23337B6600E1D1AD /* JsonArray.h */; };
+		97A2607A23337B6700E1D1AD /* JsonString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97A2607023337B6600E1D1AD /* JsonString.cpp */; };
+		97A2607B23337B6700E1D1AD /* JsonValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97A2607123337B6600E1D1AD /* JsonValue.cpp */; };
+		97A2607C23337B6700E1D1AD /* JsonNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97A2607223337B6600E1D1AD /* JsonNumber.cpp */; };
+		97A2607D23337B6700E1D1AD /* JsonObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 97A2607323337B6600E1D1AD /* JsonObject.h */; };
+		97A2607E23337B6700E1D1AD /* JsonObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97A2607423337B6600E1D1AD /* JsonObject.cpp */; };
+		97A2607F23337B6700E1D1AD /* JsonNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 97A2607523337B6600E1D1AD /* JsonNumber.h */; };
+		97A2608023337B6700E1D1AD /* JsonValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 97A2607623337B6600E1D1AD /* JsonValue.h */; };
+		97A2608123337B6700E1D1AD /* JsonString.h in Headers */ = {isa = PBXBuildFile; fileRef = 97A2607723337B6700E1D1AD /* JsonString.h */; };
+		97A2608423337B6F00E1D1AD /* Json.h in Headers */ = {isa = PBXBuildFile; fileRef = 97A2608223337B6F00E1D1AD /* Json.h */; };
+		97A2608523337B6F00E1D1AD /* Json.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97A2608323337B6F00E1D1AD /* Json.cpp */; };
+		97A2608823337B7B00E1D1AD /* Xml.h in Headers */ = {isa = PBXBuildFile; fileRef = 97A2608623337B7B00E1D1AD /* Xml.h */; };
+		97A2608923337B7B00E1D1AD /* Xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97A2608723337B7B00E1D1AD /* Xml.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,15 +42,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		975B306E2333A01C009384DD /* JsonInvalid.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JsonInvalid.cpp; sourceTree = "<group>"; };
+		975B306F2333A01C009384DD /* JsonInvalid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonInvalid.h; sourceTree = "<group>"; };
 		9798BCAE227366CA00F863ED /* libnrformat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libnrformat.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A260322331133E00E1D1AD /* UnitTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UnitTests; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A260342331133E00E1D1AD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		97A26039233114B500E1D1AD /* Json.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Json.cpp; path = nrformat/Json.cpp; sourceTree = "<group>"; };
-		97A2603A233114B500E1D1AD /* Json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Json.h; path = nrformat/Json.h; sourceTree = "<group>"; };
 		97A2603E23314B3500E1D1AD /* libnrcore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libnrcore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A2604023314B7A00E1D1AD /* libnrdebug.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libnrdebug.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		97B466F91C9AEE1F00DD2C30 /* Xml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Xml.cpp; path = nrformat/Xml.cpp; sourceTree = "<group>"; };
-		97B466FA1C9AEE1F00DD2C30 /* Xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Xml.h; path = nrformat/Xml.h; sourceTree = "<group>"; };
+		97A2606E23337B6600E1D1AD /* JsonArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonArray.cpp; sourceTree = "<group>"; };
+		97A2606F23337B6600E1D1AD /* JsonArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonArray.h; sourceTree = "<group>"; };
+		97A2607023337B6600E1D1AD /* JsonString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonString.cpp; sourceTree = "<group>"; };
+		97A2607123337B6600E1D1AD /* JsonValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonValue.cpp; sourceTree = "<group>"; };
+		97A2607223337B6600E1D1AD /* JsonNumber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonNumber.cpp; sourceTree = "<group>"; };
+		97A2607323337B6600E1D1AD /* JsonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonObject.h; sourceTree = "<group>"; };
+		97A2607423337B6600E1D1AD /* JsonObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonObject.cpp; sourceTree = "<group>"; };
+		97A2607523337B6600E1D1AD /* JsonNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonNumber.h; sourceTree = "<group>"; };
+		97A2607623337B6600E1D1AD /* JsonValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonValue.h; sourceTree = "<group>"; };
+		97A2607723337B6700E1D1AD /* JsonString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonString.h; sourceTree = "<group>"; };
+		97A2608223337B6F00E1D1AD /* Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Json.h; sourceTree = "<group>"; };
+		97A2608323337B6F00E1D1AD /* Json.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Json.cpp; sourceTree = "<group>"; };
+		97A2608623337B7B00E1D1AD /* Xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Xml.h; sourceTree = "<group>"; };
+		97A2608723337B7B00E1D1AD /* Xml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Xml.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,10 +103,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		97A2606B23337AFC00E1D1AD /* libnrformat */ = {
+			isa = PBXGroup;
+			children = (
+				97A2608623337B7B00E1D1AD /* Xml.h */,
+				97A2608723337B7B00E1D1AD /* Xml.cpp */,
+				97A2606C23337B0C00E1D1AD /* json */,
+			);
+			path = libnrformat;
+			sourceTree = "<group>";
+		};
+		97A2606C23337B0C00E1D1AD /* json */ = {
+			isa = PBXGroup;
+			children = (
+				97A2608223337B6F00E1D1AD /* Json.h */,
+				97A2608323337B6F00E1D1AD /* Json.cpp */,
+				97A2606D23337B1500E1D1AD /* types */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
+		97A2606D23337B1500E1D1AD /* types */ = {
+			isa = PBXGroup;
+			children = (
+				97A2607623337B6600E1D1AD /* JsonValue.h */,
+				97A2607123337B6600E1D1AD /* JsonValue.cpp */,
+				97A2606F23337B6600E1D1AD /* JsonArray.h */,
+				97A2606E23337B6600E1D1AD /* JsonArray.cpp */,
+				97A2607523337B6600E1D1AD /* JsonNumber.h */,
+				97A2607223337B6600E1D1AD /* JsonNumber.cpp */,
+				97A2607323337B6600E1D1AD /* JsonObject.h */,
+				97A2607423337B6600E1D1AD /* JsonObject.cpp */,
+				97A2607723337B6700E1D1AD /* JsonString.h */,
+				97A2607023337B6600E1D1AD /* JsonString.cpp */,
+				975B306F2333A01C009384DD /* JsonInvalid.h */,
+				975B306E2333A01C009384DD /* JsonInvalid.cpp */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
 		97B466E81C9AECF200DD2C30 = {
 			isa = PBXGroup;
 			children = (
-				97B466F81C9AEE1500DD2C30 /* nrformat */,
+				97A2606B23337AFC00E1D1AD /* libnrformat */,
 				97A260332331133E00E1D1AD /* UnitTests */,
 				97B466F21C9AECF200DD2C30 /* Products */,
 				97A2603D23314B3500E1D1AD /* Frameworks */,
@@ -96,17 +161,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		97B466F81C9AEE1500DD2C30 /* nrformat */ = {
-			isa = PBXGroup;
-			children = (
-				97B466FA1C9AEE1F00DD2C30 /* Xml.h */,
-				97B466F91C9AEE1F00DD2C30 /* Xml.cpp */,
-				97A2603A233114B500E1D1AD /* Json.h */,
-				97A26039233114B500E1D1AD /* Json.cpp */,
-			);
-			name = nrformat;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -114,7 +168,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97A2603C233114B500E1D1AD /* Json.h in Headers */,
+				97A2608023337B6700E1D1AD /* JsonValue.h in Headers */,
+				97A2607923337B6700E1D1AD /* JsonArray.h in Headers */,
+				97A2608823337B7B00E1D1AD /* Xml.h in Headers */,
+				97A2608123337B6700E1D1AD /* JsonString.h in Headers */,
+				97A2607D23337B6700E1D1AD /* JsonObject.h in Headers */,
+				97A2608423337B6F00E1D1AD /* Json.h in Headers */,
+				975B30712333A01C009384DD /* JsonInvalid.h in Headers */,
+				97A2607F23337B6700E1D1AD /* JsonNumber.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +261,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97A2603B233114B500E1D1AD /* Json.cpp in Sources */,
+				97A2607A23337B6700E1D1AD /* JsonString.cpp in Sources */,
+				975B30702333A01C009384DD /* JsonInvalid.cpp in Sources */,
+				97A2607B23337B6700E1D1AD /* JsonValue.cpp in Sources */,
+				97A2607C23337B6700E1D1AD /* JsonNumber.cpp in Sources */,
+				97A2608923337B7B00E1D1AD /* Xml.cpp in Sources */,
+				97A2608523337B6F00E1D1AD /* Json.cpp in Sources */,
+				97A2607E23337B6700E1D1AD /* JsonObject.cpp in Sources */,
+				97A2607823337B6700E1D1AD /* JsonArray.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +356,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4MASABRRSM;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../LibNrCore/\"",
+					"\"$(SRCROOT)/../LibNrDebug/\"",
+					/usr/local/Cellar/libxml2/2.9.9_2/include/libxml2/,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -307,6 +380,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4MASABRRSM;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../LibNrCore/\"",
+					"\"$(SRCROOT)/../LibNrDebug/\"",
+					/usr/local/Cellar/libxml2/2.9.9_2/include/libxml2/,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -364,6 +442,8 @@
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../LibNrCore/\"",
 					"\"$(SRCROOT)/../LibNrDebug/\"",
+					"\"$(SRCROOT)/../LibNrIO/\"",
+					/usr/local/Cellar/libxml2/2.9.9_2/include/libxml2/,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../LibNrCore/Debug/\"",
@@ -421,6 +501,8 @@
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../LibNrCore/\"",
 					"\"$(SRCROOT)/../LibNrDebug/\"",
+					"\"$(SRCROOT)/../LibNrIO/\"",
+					/usr/local/Cellar/libxml2/2.9.9_2/include/libxml2/,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../LibNrCore/Debug/\"",
