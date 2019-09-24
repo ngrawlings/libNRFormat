@@ -25,17 +25,21 @@ namespace nrcore {
     public:
         Json(String json);
         Json(JsonValue::TYPE type);
+        Json(Ref<JsonValue> jval);
         Json(const Json &json);
         virtual ~Json();
         
-        JsonValue::TYPE getType();
-        Ref<JsonValue> getValue();
+        JsonValue::TYPE getType() const;
+        Ref<JsonValue> getValue() const;
         
-        String getStringValue(String path);
-        int getIntValue(String path);
-        Array< Ref<JsonValue> > getArray(String path);
+        Ref<JsonValue> getJsonValue(String path) const;
+        String getStringValue(String path) const;
+        int getIntValue(String path) const;
+        Array< Ref<JsonValue> > getArray(String path) const;
         
         bool setValue(String path, Ref<JsonValue> value);
+        
+        String toString();
         
     protected:
         Ref<JsonValue> value;

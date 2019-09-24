@@ -36,12 +36,12 @@ namespace nrcore {
         
         void addValue(String name, Ref<JsonValue> value);
         
+        HashMap< Ref<JsonValue> > getValues();
+        
     protected:
         TYPE type;
         HashMap< Ref<JsonValue> > values;
         String value;
-        
-        Array<String> parseArray(String json);
     };
     
 }

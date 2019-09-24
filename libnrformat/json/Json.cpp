@@ -42,6 +42,10 @@ namespace nrcore {
         }
     }
     
+    Json::Json(Ref<JsonValue> jval) {
+        value = jval;
+    }
+    
     Json::Json(const Json &json) {
         this->value = json.value;
     }
@@ -50,15 +54,15 @@ namespace nrcore {
         
     }
     
-    JsonValue::TYPE Json::getType() {
+    JsonValue::TYPE Json::getType() const {
         return value.getPtr()->getType();
     }
     
-    Ref<JsonValue> Json::getValue() {
+    Ref<JsonValue> Json::getValue() const {
         return value;
     }
     
-    String Json::getStringValue(String path) {
+    Ref<JsonValue> Json::getJsonValue(String path) const {
         StringList names(path, ".");
         try {
             Ref<JsonValue> val = value;
@@ -71,42 +75,46 @@ namespace nrcore {
                 }
             }
             
-            switch (val.getPtr()->getType()) {
-                case JsonValue::ARRAY:
-                case JsonValue::OBJECT:
-                case JsonValue::VALUE:
-                case JsonValue::INVALID:
-                    return val.getPtr()->toString();
-                    
-                case JsonValue::STRING:
-                    return ((JsonString*)val.getPtr())->getValue();
-            }
+            return val;
+        } catch (const char *) {
             
+        }
+        return Ref<JsonValue>(0);
+    }
+    
+    String Json::getStringValue(String path) const {
+        StringList names(path, ".");
+        try {
+            Ref<JsonValue> val = getJsonValue(path);
+            if (val.getPtr()) {
+                switch (val.getPtr()->getType()) {
+                    case JsonValue::ARRAY:
+                    case JsonValue::OBJECT:
+                    case JsonValue::VALUE:
+                    case JsonValue::INVALID:
+                        return val.getPtr()->toString();
+                        
+                    case JsonValue::STRING:
+                        return ((JsonString*)val.getPtr())->getValue();
+                }
+            }
         } catch (const char *) {
             
         }
         return "";
     }
     
-    int Json::getIntValue(String path) {
+    int Json::getIntValue(String path) const {
         String v = getStringValue(path);
         return atoi(v.operator char *());
     }
     
-    Array< Ref<JsonValue> > Json::getArray(String path) {
+    Array< Ref<JsonValue> > Json::getArray(String path) const {
         StringList names(path, ".");
         try {
-            Ref<JsonValue> val = value;
-            ssize_t len = names.length();
+            Ref<JsonValue> val = getJsonValue(path);
             
-            if (len) {
-                for (int i=0; i<len; i++) {
-                    JsonObject *jo = (JsonObject*)val.getPtr();
-                    val = jo->getValue(names[i]);
-                }
-            }
-            
-            if (val.getPtr()->getType() == JsonValue::ARRAY)
+            if (val.getPtr() && val.getPtr()->getType() == JsonValue::ARRAY)
                 return ((JsonArray*)val.getPtr())->getArray();
             
         } catch (const char *) {
@@ -134,6 +142,10 @@ namespace nrcore {
         jo->addValue(names[(unsigned int)len-1], value);
         
         return true;
+    }
+    
+    String Json::toString() {
+        return value.getPtr()->toString();
     }
     
 }

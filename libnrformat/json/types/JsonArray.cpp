@@ -115,4 +115,8 @@ namespace nrcore {
         return values;
     }
     
+    void JsonArray::addValue(Ref<JsonValue> value) {
+        values.push(value);
+    }
+    
 }

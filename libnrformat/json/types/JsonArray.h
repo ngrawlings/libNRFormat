@@ -28,6 +28,8 @@ namespace nrcore {
         
         Array< Ref<JsonValue> > getArray();
         
+        void addValue(Ref<JsonValue> value);
+        
     protected:
         Array< Ref<JsonValue> > values;
     };

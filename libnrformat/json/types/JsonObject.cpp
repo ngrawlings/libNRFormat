@@ -167,4 +167,8 @@ namespace nrcore {
         values.set(n, value);
     }
     
+    HashMap< Ref<JsonValue> > JsonObject::getValues() {
+        return values;
+    }
+    
 }
