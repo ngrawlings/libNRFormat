@@ -14,6 +14,10 @@ namespace nrcore {
         this->value = json;
     }
     
+    JsonNumber::JsonNumber(int value) {
+        this->value = String("%").arg(value);
+    }
+    
     JsonNumber::JsonNumber(const JsonNumber &json) {
         this->value = json.value;
     }

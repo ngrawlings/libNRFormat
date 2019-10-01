@@ -83,7 +83,6 @@ namespace nrcore {
     }
     
     String Json::getStringValue(String path) const {
-        StringList names(path, ".");
         try {
             Ref<JsonValue> val = getJsonValue(path);
             if (val.getPtr()) {
@@ -133,6 +132,10 @@ namespace nrcore {
             jo = (JsonObject*)val.getPtr();
             try {
                 val = jo->getValue(names[i]);
+                if (!val.getPtr()) {
+                    jo->addValue(names[i], Ref<JsonValue>(new JsonObject("{}")));
+                    val = jo->getValue(names[i]);
+                }
             } catch(const char *) {
                 jo->addValue(names[i], Ref<JsonValue>(new JsonObject("{}")));
                 val = jo->getValue(names[i]);

@@ -17,6 +17,7 @@ namespace nrcore {
     class JsonNumber : public JsonValue {
     public:
         JsonNumber(String json);
+        JsonNumber(int value);
         JsonNumber(const JsonNumber &json);
         virtual ~JsonNumber();
         

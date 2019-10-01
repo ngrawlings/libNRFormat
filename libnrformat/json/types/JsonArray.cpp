@@ -86,6 +86,13 @@ namespace nrcore {
                         val += json[i];
                     break;
                     
+                case '{':
+                    symbols.add(json[i]);
+                    in_array = true;
+                    if (symbols.length()>1)
+                        val += json[i];
+                    break;
+                    
                 default:
                 {
                     if (in_array) {
@@ -99,6 +106,9 @@ namespace nrcore {
                             symbols.removeNode(symbols.lastNode());
                             if (!symbols.length())
                                 in_array = false;
+                        } else if (json[i] == '}') {
+                            val += json[i];
+                            symbols.removeNode(symbols.lastNode());
                         } else {
                             val += json[i];
                         }
