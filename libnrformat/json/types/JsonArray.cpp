@@ -97,8 +97,10 @@ namespace nrcore {
                 {
                     if (in_array) {
                         if (symbols.length() == 1 && (json[i] == ',' || json[i] == ']')) {
-                            values.push(JsonValue::getJsonValue(val));
-                            val = "";
+                            if (val.length()) {
+                                values.push(JsonValue::getJsonValue(val));
+                                val = "";
+                            }
                             if (json[i] == ']')
                                 in_array = false;
                         } else if (json[i] == ']') {
