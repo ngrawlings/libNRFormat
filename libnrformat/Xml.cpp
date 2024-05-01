@@ -7,7 +7,7 @@
 //
 
 #include "Xml.h"
-#include "libnrcore/memory/File.h"
+#include "libnrio/File.h"
 
 namespace nrcore {
     
